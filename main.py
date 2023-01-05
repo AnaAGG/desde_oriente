@@ -2,6 +2,9 @@ import streamlit as st
 from time import sleep
 from PIL import Image
 import time
+from datetime import datetime
+
+
 # poner el ancho de la página al máximo
 st.set_page_config(layout="wide")
 
@@ -14,82 +17,68 @@ st.markdown("<h1 style='text-align: center; color: black;'>Protocolo P.A.C.A</h1
 ###########
 #funciones#
 ###########
-def adivina_escribiendo(num = 4, intentos = 0):
-    num -= 1
+def adivina_escribiendo(intentos = 0):
+    
     intentos += 1 
     respuesta_acertada = ["paja", "fardo", "animal", "mamifero", "hierba"]
-    if num > 0:
-        st.markdown(f"<h4 style='text-align: legft; color: black;'>📝El tercer reto consiste en saber qué es lo que significa la palabra PACA, en este caso tendréis que escribirlo vosotros</h4>", unsafe_allow_html=True)
 
-        respuesta = st.text_input(f"Intento {intentos} de 3")
-        if respuesta == "":
-            st.write("necesitamos tu respuesta")            
-        elif respuesta in respuesta_acertada:
-            st.markdown("<h1 style='text-align: center; color: black;'>TODOS LOS LOGROS HAN SIDO DESBLOQUEADOS</h1>", unsafe_allow_html=True)
-            st.markdown("<h3 style='text-align: center; color: black;'>Veamos en que consiste el Protocolo P.A.C.A</h3>", unsafe_allow_html=True)
+    st.markdown(f"<h4 style='text-align: legft; color: black;'>📝El tercer reto consiste en saber qué es lo que significa la palabra PACA, en este caso tendréis que escribirlo vosotros</h4>", unsafe_allow_html=True)
 
-            if st.button('Pincha aqui para mas información'):
-                boton()
-        else:   
-            st.write(f"Error, te quedan {num-1} intentos")
-            adivina_escribiendo(num, intentos)        
-    else:
-        st.write("Se acabo")
+    respuesta = st.text_input(f"Intento {intentos} de 1")
+    if respuesta == "":
+        st.write("necesitamos tu respuesta")            
+    elif respuesta in respuesta_acertada:
+        st.markdown("<h1 style='text-align: center; color: black;'>TODOS LOS LOGROS HAN SIDO DESBLOQUEADOS</h1>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center; color: black;'>Veamos en que consiste el Protocolo P.A.C.A</h3>", unsafe_allow_html=True)
+
+        if st.button('Pincha aqui para mas información'):
+            boton()
+    else:   
+        st.write(f"Se acabó")
+        return "Error"
 
 
 
 
 
-def adivina_imagen( num = 4, intentos = 0):
-    num -= 1
+def adivina_imagen( intentos = 0):
+
     intentos += 1 
 
     st.markdown(f"<h4 style='text-align: legft; color: black;'>🎬El primer reto consiste en averiguar donde se encuentran las Flechas de Diana</h4>", unsafe_allow_html=True)
 
-    respuesta_acertada = "Dos en la carretera"
-    if num > 0:
-        respuesta = st.radio(f"Intento {intentos} de 3", ("Elige una opción", "Neptuno", 'Gran Vía', 'Plaza España'))
-        if respuesta == "Elige una opción":
-            #st.write("necesitamos tu respuesta")  
-            pass    
-            return "necesitamos tu respuesta"      
-        elif respuesta =="Gran Vía":
-            st.markdown("<h1 style='text-align: center; color: black;'>LOGRO DESBLOQUEADO</h1>", unsafe_allow_html=True)
-            st.markdown("<h3 style='text-align: center; color: black;'>Pasemos al siguiente reto</h3>", unsafe_allow_html=True)
-            return "Bien!!!"
-        else:   
-            st.write(f"Error, te quedan {num-1} intentos")
-            adivina_imagen(num, intentos)  
-            return "Error"      
-    else:
-        st.write("Se acabó")
-        return "Se acabó"
+
+    respuesta = st.radio(f"Intento {intentos} de 3", ("Elige una opción", "Neptuno", 'Gran Vía', 'Plaza España'))
+    if respuesta == "Elige una opción":
+        #st.write("necesitamos tu respuesta")     
+        return "necesitamos tu respuesta"      
+    elif respuesta =="Gran Vía":
+        st.markdown("<h1 style='text-align: center; color: black;'>LOGRO DESBLOQUEADO</h1>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center; color: black;'>Pasemos al siguiente reto</h3>", unsafe_allow_html=True)
+        return "Bien!!!"
+    else:   
+        st.write(f"Error, te quedan intentos")
+        return "Error"      
 
 
-def adivina_geografía(num = 4, intentos = 0):
-    num -= 1
+def adivina_geografía(intentos = 0):
     intentos += 1 
 
     st.markdown(f"<h4 style='text-align: legft; color: black;'> 🌍El segundo reto consiste en contestar a la siguiente pregunta ¿Cómo se llamaba antes la Calle Alcalá?</h4>", unsafe_allow_html=True)
     
 
-    if num > 0:
-        respuesta = st.radio(f"Intento {intentos} de 3", ("Elige una opción", "Calle Grande", 'Calle de la Puerta', 'Calle de los Olivares', 'Calle de la Fuente'))
-        if respuesta == "Elige una opción":
-            #st.write("necesitamos tu respuesta")  
-            pass    
-            return "necesitamos tu respuesta"      
-        elif respuesta =="Calle de los Olivares":
-            st.markdown("<h1 style='text-align: center; color: black;'>LOGRO DESBLOQUEADO</h1>", unsafe_allow_html=True)
-            st.markdown("<h3 style='text-align: center; color: black;'>Pasemos al siguiente reto</h3>", unsafe_allow_html=True)
-            return "Bien!!!"
-        else:   
-            st.write(f"Error, te quedan {num-1} intentos")
-            adivina_imagen( num, intentos)  
-            return "Error"      
-    else:
-        st.write("Se acabó")
-        return "Se acabó"
+
+    respuesta = st.radio(f"Intento {intentos} de 3", ("Elige una opción", "Calle Grande", 'Calle de la Puerta', 'Calle de los Olivares', 'Calle de la Fuente'))
+    if respuesta == "Elige una opción":
+        #st.write("necesitamos tu respuesta")  
+        return "necesitamos tu respuesta"      
+    elif respuesta =="Calle de los Olivares":
+        st.markdown("<h1 style='text-align: center; color: black;'>LOGRO DESBLOQUEADO</h1>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center; color: black;'>Pasemos al siguiente reto</h3>", unsafe_allow_html=True)
+        return "Bien!!!"
+    else:   
+        st.write(f"Error, te quedan  intentos")
+        return "Error"      
 
 
 
@@ -148,20 +137,24 @@ with st.empty():
 
 repuesta1 = adivina_imagen()
 
-if repuesta1 == "Se acabó": 
-    st.write("Lo siento, no podemos seguir con los retos")
-elif repuesta1 == "necesitamos tu respuesta" or repuesta1 == "Error":
+
+
+if repuesta1 == "necesitamos tu respuesta":
     st.write("❌ Necesitamos que superes este reto para pasar al siguiente")
+elif repuesta1 == "Error":
+    st.write("❌ Oh oh...")
 elif repuesta1  == "Bien!!!":
-    respuesta2 = adivina_geografía()
-    
-    if respuesta2 == "Se acabó": 
-        st.write("Lo siento, no podemos seguir con los retos")
-    elif respuesta2 == "necesitamos tu respuesta" or respuesta2 == "Error":
+    respuesta3 = adivina_geografía()
+    if respuesta3 == "necesitamos tu respuesta":
         st.write("❌ Necesitamos que superes este reto para pasar al siguiente")
-    elif respuesta2  == "Bien!!!":
-        adivina_escribiendo()
-
-
+    elif respuesta3 == "Error":
+        st.write("❌ Oh oh...")
+    elif respuesta3  == "Bien!!!":
+        respuesta4 = adivina_escribiendo()
+        if respuesta4 == "necesitamos tu respuesta":
+            st.write("❌ Necesitamos que superes este reto para pasar al siguiente")
+        elif respuesta4 == "Error":
+            st.write("❌ Oh oh...")
+    
 
 

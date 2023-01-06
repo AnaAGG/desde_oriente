@@ -24,7 +24,7 @@ def adivina_escribiendo(intentos = 0):
 
     st.markdown(f"<h4 style='text-align: legft; color: black;'>📝El tercer reto consiste en saber qué es lo que significa la palabra PACA, en este caso tendréis que escribirlo vosotros</h4>", unsafe_allow_html=True)
 
-    respuesta = st.text_input(f"Intento {intentos} de 1").lower()
+    respuesta = st.text_input(f"Intento {intentos} de 1").lower().strip()
     if respuesta == "":
         st.write("❌ Necesitamos que superes este reto para pasar desbloquear el regalo")            
     elif respuesta in respuesta_acertada:

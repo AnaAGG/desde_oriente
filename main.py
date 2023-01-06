@@ -26,7 +26,7 @@ def adivina_escribiendo(intentos = 0):
 
     respuesta = st.text_input(f"Intento {intentos} de 1")
     if respuesta == "":
-        st.write("necesitamos tu respuesta")            
+        st.write("❌ Necesitamos que superes este reto para pasar desbloquear el regalo")            
     elif respuesta in respuesta_acertada:
         st.markdown("<h1 style='text-align: center; color: black;'>TODOS LOS LOGROS HAN SIDO DESBLOQUEADOS</h1>", unsafe_allow_html=True)
         st.markdown("<h3 style='text-align: center; color: black;'>Veamos en que consiste el Protocolo P.A.C.A</h3>", unsafe_allow_html=True)
@@ -48,7 +48,7 @@ def adivina_imagen( intentos = 0):
     st.markdown(f"<h4 style='text-align: legft; color: black;'>🎬El primer reto consiste en averiguar donde se encuentran las Flechas de Diana</h4>", unsafe_allow_html=True)
 
 
-    respuesta = st.radio(f"Intento {intentos} de 3", ("Elige una opción", "Neptuno", 'Gran Vía', 'Plaza España'))
+    respuesta = st.radio(f"Intento {intentos} de 1", ("Elige una opción", "Neptuno", 'Gran Vía', 'Plaza España'))
     if respuesta == "Elige una opción":
         #st.write("necesitamos tu respuesta")     
         return "necesitamos tu respuesta"      
@@ -68,7 +68,7 @@ def adivina_geografía(intentos = 0):
     
 
 
-    respuesta = st.radio(f"Intento {intentos} de 3", ("Elige una opción", "Calle Grande", 'Calle de la Puerta', 'Calle de los Olivares', 'Calle de la Fuente'))
+    respuesta = st.radio(f"Intento {intentos} de 1", ("Elige una opción", "Calle Grande", 'Calle de la Puerta', 'Calle de los Olivares', 'Calle de la Fuente'))
     if respuesta == "Elige una opción":
         #st.write("necesitamos tu respuesta")  
         return "necesitamos tu respuesta"      
@@ -90,13 +90,18 @@ def boton():
         st.markdown("<h1 style='text-align: center; color: black;'>P</h1>", unsafe_allow_html=True)
         st.image("imagenes/paseo.jpg")
         st.markdown("**Paseo**")
-        st.write("Bonito paseo bla bla bla")
+        st.write("""Paseo por Madrid
+                    Calles empedradas, sonrisas
+                    Castizo y vivo""")
 
     with col2:
         st.markdown("<h1 style='text-align: center; color: black;'>A</h1>", unsafe_allow_html=True)
         st.image("imagenes/museo-thyssen.jpg")
         st.markdown("**Arte**")
-        st.write("acceso a las colecciones bla bla bla")
+        st.write("""Baronesa Thyssen
+                    Museo de su apellido
+                    Romance con Tarzan
+                    Arte y amor en uno""")
         st.write("Más información en este [link](https://www.museothyssen.org/)")
 
 
@@ -105,7 +110,10 @@ def boton():
         st.markdown("<h1 style='text-align: center; color: black;'>C</h1>", unsafe_allow_html=True)
         st.image("imagenes/las-reses.jpg")
         st.markdown("**Comida**")
-        st.write("En un emblematico restarante bla bla bla")
+        st.write("""Sentarse en la mesa con vosotros
+                    Comida deliciosa
+                    Sabor y aroma en cada bocado
+                    Placer para el alma""")
         st.write("Más información en este [link](https://lasreses.com/)")
 
 
@@ -113,7 +121,9 @@ def boton():
         st.markdown("<h1 style='text-align: center; color: black;'>A</h1>", unsafe_allow_html=True)
         st.image("imagenes/circulo.jpg")
         st.markdown("**Atardecer**")
-        st.write("Terminaremos el día con un cafe disfrutando de los cielos y tejados de Madrid en el Circulo de Bellas Artes")
+        st.write("""Atardecer en Madrid
+                    Cielo rojo y dorado
+                    Belleza eterna""")
         st.write("Más información en este [link](https://www.azoteadelcirculo.com/)")
 
 #cargamos y ponemos una imagen
@@ -123,8 +133,7 @@ st.image(image, caption='Atardecer en la Almudena')
 
 
 mensaje_juego = """A lo largo de esta página os iremos planteando algunos retos que tendréis que ir desbloqueando para poder 
-                    llegar a vuestro Regalo de Reyes. En cada uno de los retos que os planteamos tendréis tres intentos.
-                     Si en alguno de los retos consumís los tres intentos tendréis que volver otro día para intentarlo de nuevo."""
+                    llegar a vuestro Regalo de Reyes. En cada uno de los retos solo tendréis una oportunidad para acertar."""
 
 st.markdown(f"<h4 style='text-align: center; color: black;'>{mensaje_juego}</h4>", unsafe_allow_html=True)
 
@@ -142,19 +151,19 @@ repuesta1 = adivina_imagen()
 if repuesta1 == "necesitamos tu respuesta":
     st.write("❌ Necesitamos que superes este reto para pasar al siguiente")
 elif repuesta1 == "Error":
-    st.write("❌ Oh oh...")
+    st.write("❌ Oh oh... os habéis equivocado 😢. Tendréis que volver a intentarlo mañana.")
 elif repuesta1  == "Bien!!!":
     respuesta3 = adivina_geografía()
     if respuesta3 == "necesitamos tu respuesta":
         st.write("❌ Necesitamos que superes este reto para pasar al siguiente")
     elif respuesta3 == "Error":
-        st.write("❌ Oh oh...")
+        st.write("❌ Oh oh... os habéis equivocado 😢. Tendréis que volver a intentarlo mañana.")
     elif respuesta3  == "Bien!!!":
         respuesta4 = adivina_escribiendo()
         if respuesta4 == "necesitamos tu respuesta":
             st.write("❌ Necesitamos que superes este reto para pasar al siguiente")
         elif respuesta4 == "Error":
-            st.write("❌ Oh oh...")
+            st.write("❌ Oh oh... os habéis equivocado 😢. Tendréis que volver a intentarlo mañana.")
     
 
 

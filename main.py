@@ -140,7 +140,7 @@ st.markdown(f"<h4 style='text-align: center; color: black;'>{mensaje_juego}</h4>
 with st.empty():
     for seconds in reversed(range(15)):
         st.markdown(f"<h4 style='text-align: center; color: black;'>⏳ Quedan {seconds} para empezar con los retos!!!</h4>", unsafe_allow_html=True)
-        time.sleep(3)
+        time.sleep(1)
     st.markdown("<h1 style='text-align: center; color: black;'>✔️ Empezamos!</h1>", unsafe_allow_html=True)
 
 

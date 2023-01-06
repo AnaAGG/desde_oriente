@@ -24,7 +24,7 @@ def adivina_escribiendo(intentos = 0):
 
     st.markdown(f"<h4 style='text-align: legft; color: black;'>📝El tercer reto consiste en saber qué es lo que significa la palabra PACA, en este caso tendréis que escribirlo vosotros</h4>", unsafe_allow_html=True)
 
-    respuesta = st.text_input(f"Intento {intentos} de 1")
+    respuesta = st.text_input(f"Intento {intentos} de 1").lower()
     if respuesta == "":
         st.write("❌ Necesitamos que superes este reto para pasar desbloquear el regalo")            
     elif respuesta in respuesta_acertada:
@@ -45,7 +45,7 @@ def adivina_imagen( intentos = 0):
 
     intentos += 1 
 
-    st.markdown(f"<h4 style='text-align: legft; color: black;'>🎬El primer reto consiste en averiguar donde se encuentran las Flechas de Diana</h4>", unsafe_allow_html=True)
+    st.markdown(f"<h4 style='text-align: legft; color: black;'>🏹El primer reto consiste en averiguar donde se encuentran las Flechas de Diana</h4>", unsafe_allow_html=True)
 
 
     respuesta = st.radio(f"Intento {intentos} de 1", ("Elige una opción", "Neptuno", 'Gran Vía', 'Plaza España'))
@@ -145,7 +145,6 @@ with st.empty():
 
 
 repuesta1 = adivina_imagen()
-
 
 
 if repuesta1 == "necesitamos tu respuesta":
